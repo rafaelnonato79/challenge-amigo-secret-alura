@@ -28,3 +28,12 @@ function adicionarAmigo(){
 
 }
 
+function sortearAmigo(){
+    let numeroAleatorio = Math.floor(Math.random()* listaAmigos.length)
+    console.log(listaAmigos[numeroAleatorio])
+
+}
+
+
+
+
