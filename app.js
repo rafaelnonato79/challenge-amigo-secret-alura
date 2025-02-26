@@ -4,7 +4,13 @@ let listaAmigos = []
 
 let listaApresentada = document.getElementById("listaAmigos")
 
+let resultado = document.getElementById('resultado')
 
+document.addEventListener('keypress', function(event){
+    if(event.key == 'Enter'){
+        adicionarAmigo()
+    }
+})
 
 function mostrarLista(){
     listaApresentada.innerHTML = '';
@@ -18,20 +24,30 @@ function mostrarLista(){
 
 
 function adicionarAmigo(){
-    listaAmigos.push(nome.value)
-    nome.value = ''
 
-    console.log(listaAmigos)
-    console.log(listaAmigos.length)
-
-    mostrarLista()
+    if(!nome.value){
+      alert('Digite um nome válido')    
+    }else{
+        listaAmigos.push(nome.value)
+        nome.value = ''
+    
+        console.log(listaAmigos)
+        console.log(listaAmigos.length)
+    
+        mostrarLista()
+    }
 
 }
 
 function sortearAmigo(){
-    let numeroAleatorio = Math.floor(Math.random()* listaAmigos.length)
-    console.log(listaAmigos[numeroAleatorio])
 
+    if(listaAmigos.length == 0 ){
+        alert('Não existe amigos para sorterar. Por favor, adicionar nomes')
+    }else{
+        let numeroAleatorio = Math.floor(Math.random()* listaAmigos.length)
+        console.log(listaAmigos[numeroAleatorio]) 
+        resultado.innerHTML = `<li>${listaAmigos[numeroAleatorio]}</li`
+    }
 }
 
 
